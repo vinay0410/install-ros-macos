@@ -9,9 +9,16 @@ brew tap homebrew/science  # others
 mkdir -p ~/Library/Python/2.7/lib/python/site-packages
 echo "$(brew --prefix)/lib/python2.7/site-packages" >> ~/Library/Python/2.7/lib/python/site-packages/homebrew.pth
 
-sudo -H python2 -m pip install wxPython # Install python-wxtools
+#pip install --upgrade pip
+
+sudo -H python2 -m pip install wxPython empy 
 
 sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx
+
+brew install boost boost-python
+brew install console_bridge poco tinyxml
+brew install pyqt5 --with-python
+
 
 sudo -H rosdep init
 rosdep update
@@ -25,6 +32,6 @@ wstool init -j8 src lunar-desktop-wet.rosinstall
 
 rosdep install --skip-keys google-mock --from-paths src --ignore-src --rosdistro lunar -y
 
-./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
+./src/catkin/bin/catkin_make_isolated --install -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_BUILD_TYPE=Release
 
 source ~/ros_catkin_ws/install_isolated/setup.bash
