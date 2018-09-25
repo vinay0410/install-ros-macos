@@ -8,4 +8,4 @@ branches:
     - test
 
 script:
-  - sh install.sh
+  - sh install_ros.sh
