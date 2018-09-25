@@ -11,11 +11,11 @@ echo "$(brew --prefix)/lib/python2.7/site-packages" >> ~/Library/Python/2.7/lib/
 
 #pip install --upgrade pip
 
-sudo -H python2 -m pip install wxPython empy 
+sudo -H python2 -m pip install wxPython empy
 
 sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx
 
-brew install boost boost-python
+brew install boost boost-python eigen
 brew install console_bridge poco tinyxml
 brew install pyqt5 --with-python
 
