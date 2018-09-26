@@ -62,6 +62,14 @@ sed -i '' 's/logError/CONSOLE_BRIDGE_logError/g' src/geometry2/tf2/src/buffer_co
 
 fi
 
+if [ -e src/vision_opencv/cv_bridge/CMakeLists.txt ]; then
+  sed -i '' 's/Boost REQUIRED python/Boost REQUIRED python27/g' src/vision_opencv/cv_bridge/CMakeLists.txt
+fi
+
+if [ -e src/vision_opencv/cv_bridge/CMakeLists.txt ]; then
+  sed -i '' 's/Boost REQUIRED python/Boost REQUIRED python27/g' src/vision_opencv/cv_bridge/CMakeLists.txt
+fi
+
 
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_BUILD_TYPE=Release
 
