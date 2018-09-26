@@ -22,6 +22,14 @@ brew install opencv
 
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
+export CMAKE_PREFIX_PATH=$(brew --prefix qt5)
+
+  pushd /usr/local/share/sip
+  if [ ! -e PyQt5 ]; then
+    ln -s Qt5 PyQt5
+  fi
+  popd
+
 sudo -H rosdep init
 rosdep update
 
