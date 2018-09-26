@@ -30,16 +30,17 @@ cd ~/ros_catkin_ws
 
 rosinstall_generator desktop --rosdistro lunar --deps --wet-only --tar > lunar-desktop-wet.rosinstall
 
-wstool init -j8 src lunar-desktop-wet.rosinstall
+wstool init src
 
 pushd src
     # Avoid downloading opencv3; we already installed it from homebrew.
     wstool merge file://$(pwd)/../lunar-desktop-wet.rosinstall
     wstool remove opencv3
     wstool update -j8
-popd
 
-rosdep install --skip-keys google-mock --from-paths src --ignore-src --rosdistro lunar -y
+    rosdep install --skip-keys google-mock --from-paths . --ignore-src --rosdistro lunar -y
+
+popd
 
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_BUILD_TYPE=Release
 
