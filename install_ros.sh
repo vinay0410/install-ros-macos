@@ -19,6 +19,7 @@ brew install boost boost-python eigen
 brew install console_bridge poco tinyxml qt
 brew install pyqt5 --with-python
 
+export PATH="/usr/local/opt/qt/bin:$PATH"
 
 sudo -H rosdep init
 rosdep update
