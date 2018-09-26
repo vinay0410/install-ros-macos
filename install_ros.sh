@@ -57,15 +57,15 @@ popd
 
 if [ -e src/geometry2/tf2/src/buffer_core.cpp ]; then
 
-sed -i '' 's/ logWarn/ CONSOLE_BRIDGE_logWarn/g' src/geometry2/tf2/src/buffer_core.cpp
-sed -i '' 's/ logError/ CONSOLE_BRIDGE_logError/g' src/geometry2/tf2/src/buffer_core.cpp
+sed -i '' 's/\blogWarn/CONSOLE_BRIDGE_logWarn/g' src/geometry2/tf2/src/buffer_core.cpp
+sed -i '' 's/\blogError/CONSOLE_BRIDGE_logError/g' src/geometry2/tf2/src/buffer_core.cpp
 
 fi
 
 if [ -e src/vision_opencv/cv_bridge/CMakeLists.txt ]; then
-  sed -i '' 's/Boost REQUIRED python /Boost REQUIRED python27 /g' src/vision_opencv/cv_bridge/CMakeLists.txt
+  sed -i '' 's/Boost REQUIRED python\b/Boost REQUIRED python27/g' src/vision_opencv/cv_bridge/CMakeLists.txt
+  sed -i '' 's/Boost REQUIRED python)/Boost REQUIRED python27)/g' src/vision_opencv/cv_bridge/CMakeLists.txt
 fi
-
 
 
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_BUILD_TYPE=Release
