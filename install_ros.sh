@@ -34,7 +34,7 @@ wstool init -j8 src lunar-desktop-wet.rosinstall
 
 pushd src
     # Avoid downloading opencv3; we already installed it from homebrew.
-    wstool merge file://$(pwd)/lunar-desktop-wet.rosinstall
+    wstool merge file://$(pwd)/../lunar-desktop-wet.rosinstall
     wstool remove opencv3
     wstool update -j8
 popd
