@@ -32,9 +32,9 @@ rosinstall_generator desktop --rosdistro lunar --deps --wet-only --tar > lunar-d
 
 wstool init -j8 src lunar-desktop-wet.rosinstall
 
-wstool merge lunar-desktop-wet.rosinstall
-wstool remove opencv3
-wstool update -j8
+wstool merge src lunar-desktop-wet.rosinstall
+wstool remove src opencv3
+wstool update -j8 src
 
 rosdep install --skip-keys google-mock --from-paths src --ignore-src --rosdistro lunar -y
 
