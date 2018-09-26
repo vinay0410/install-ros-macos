@@ -53,6 +53,13 @@ pushd src
 
 popd
 
+if [ -e src/geometry2/tf2/src/buffer_core.cpp ]; then
+
+sed 's/logWarn/CONSOLE_BRIDGE_logWarn/g' src/geometry2/tf2/src/buffer_core.cpp
+
+fi
+
+
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_BUILD_TYPE=Release
 
 #source ~/ros_catkin_ws/install_isolated/setup.bash
