@@ -13,16 +13,19 @@ echo "$(brew --prefix)/lib/python2.7/site-packages" >> ~/Library/Python/2.7/lib/
 
 sudo -H python2 -m pip install wxPython empy
 
-sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx
+sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx nose
 
 brew install boost boost-python eigen
 brew install console_bridge poco tinyxml tinyxml2 qt
 brew install pyqt5 --with-python
 brew install opencv
+brew install gtest assimp qhull yaml-cpp
 
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
 export CMAKE_PREFIX_PATH=$(brew --prefix qt5)
+
+# Source : https://answers.ros.org/question/266864/continued-installing-on-mac-sierra-qt_gui_cpp_sip-errors/
 
   pushd /usr/local/share/sip
   if [ ! -e PyQt5 ]; then
