@@ -49,13 +49,14 @@ pushd src
     wstool remove opencv3
     wstool update -j8
 
-    rosdep install --skip-keys google-mock --from-paths . --ignore-src --rosdistro lunar -y
+    rosdep install --skip-keys google-mock --skip-keys python-wxtools --from-paths . --ignore-src --rosdistro lunar -y
 
 popd
 
 if [ -e src/geometry2/tf2/src/buffer_core.cpp ]; then
 
-sed 's/logWarn/CONSOLE_BRIDGE_logWarn/g' src/geometry2/tf2/src/buffer_core.cpp
+sed -i 's/logWarn/CONSOLE_BRIDGE_logWarn/g' src/geometry2/tf2/src/buffer_core.cpp
+sed -i 's/logError/CONSOLE_BRIDGE_logError/g' src/geometry2/tf2/src/buffer_core.cpp
 
 fi
 
