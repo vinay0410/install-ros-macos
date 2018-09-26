@@ -16,8 +16,9 @@ sudo -H python2 -m pip install wxPython empy
 sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx
 
 brew install boost boost-python eigen
-brew install console_bridge poco tinyxml qt
+brew install console_bridge poco tinyxml2 qt
 brew install pyqt5 --with-python
+brew install opencv
 
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
@@ -30,6 +31,10 @@ cd ~/ros_catkin_ws
 rosinstall_generator desktop --rosdistro lunar --deps --wet-only --tar > lunar-desktop-wet.rosinstall
 
 wstool init -j8 src lunar-desktop-wet.rosinstall
+
+wstool merge lunar-desktop-wet.rosinstall
+wstool remove opencv3
+wstool update -j8
 
 rosdep install --skip-keys google-mock --from-paths src --ignore-src --rosdistro lunar -y
 
