@@ -57,8 +57,8 @@ popd
 
 if [ -e src/geometry2/tf2/src/buffer_core.cpp ]; then
 
-sed -i '' 's/\blogWarn/CONSOLE_BRIDGE_logWarn/g' src/geometry2/tf2/src/buffer_core.cpp
-sed -i '' 's/\blogError/CONSOLE_BRIDGE_logError/g' src/geometry2/tf2/src/buffer_core.cpp
+sed -i '' 's/ logWarn/ CONSOLE_BRIDGE_logWarn/g' src/geometry2/tf2/src/buffer_core.cpp
+sed -i '' 's/ logError/ CONSOLE_BRIDGE_logError/g' src/geometry2/tf2/src/buffer_core.cpp
 
 fi
 
