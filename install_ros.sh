@@ -16,7 +16,7 @@ sudo -H python2 -m pip install wxPython empy
 sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx
 
 brew install boost boost-python eigen
-brew install console_bridge poco tinyxml
+brew install console_bridge poco tinyxml qt
 brew install pyqt5 --with-python
 
 
