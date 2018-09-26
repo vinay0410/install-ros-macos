@@ -20,6 +20,8 @@ brew install console_bridge poco tinyxml tinyxml2 qt
 brew install pyqt5 --with-python
 brew install opencv
 brew install gtest assimp qhull yaml-cpp lz4
+brew install urdfdom urdfdom_headers
+
 
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
