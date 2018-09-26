@@ -19,7 +19,7 @@ brew install boost boost-python eigen
 brew install console_bridge poco tinyxml tinyxml2 qt
 brew install pyqt5 --with-python
 brew install opencv
-brew install gtest assimp qhull yaml-cpp
+brew install gtest assimp qhull yaml-cpp lz4
 
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
