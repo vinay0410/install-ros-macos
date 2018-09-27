@@ -15,7 +15,7 @@ sudo -H python2 -m pip install wxPython empy
 
 sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx nose
 
-brew install boost boost-python eigen yaml-cpp
+brew install boost boost-python eigen
 brew install console_bridge poco tinyxml tinyxml2 qt
 brew install pyqt5 --with-python
 brew install opencv
@@ -26,6 +26,19 @@ brew install urdfdom urdfdom_headers ogre1.9
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
 export CMAKE_PREFIX_PATH=$(brew --prefix qt5)
+
+# Install Yaml CPP from Sourcebrew installation conflicts with gtests
+# and while building from source we can expicitly diable building tests
+wget https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.2.zip
+mkdir yaml
+unzip yaml-cpp-0.6.2.zip -d yaml
+
+pushd yaml/*/
+  mkdir build && cd build
+  cmake -DYAML_CPP_BUILD_TESTS=OFF ..
+  make -j2
+  sudo make install
+popd
 
 # Source : https://answers.ros.org/question/266864/continued-installing-on-mac-sierra-qt_gui_cpp_sip-errors/
 
