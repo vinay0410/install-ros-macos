@@ -1,4 +1,3 @@
-brew fetch --retry
 
 brew install cmake
 
