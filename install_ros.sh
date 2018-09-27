@@ -15,11 +15,11 @@ sudo -H python2 -m pip install wxPython empy
 
 sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx nose
 
-brew install boost boost-python eigen
+brew install boost boost-python eigen yaml-cpp
 brew install console_bridge poco tinyxml tinyxml2 qt
 brew install pyqt5 --with-python
 brew install opencv
-brew install gtest assimp qhull yaml-cpp lz4
+brew install gtest assimp qhull lz4
 brew install urdfdom urdfdom_headers ogre1.9
 
 
