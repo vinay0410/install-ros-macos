@@ -1,4 +1,5 @@
-brew update
+brew fetch --retry
+
 brew install cmake
 
 brew tap ros/deps
