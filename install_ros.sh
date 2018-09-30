@@ -57,10 +57,10 @@ sudo -H rosdep init
 
 # if rosdep init fails, do it manually
 
-if [ $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   wget https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
-  mkdir -p /etc/ros/rosdep/sources.list.d/
-  mv -f 20-default.list /etc/ros/rosdep/sources.list.d/
+  sudo mkdir -p /etc/ros/rosdep/sources.list.d/
+  sudo mv -f 20-default.list /etc/ros/rosdep/sources.list.d/
 fi
 
 rosdep update
