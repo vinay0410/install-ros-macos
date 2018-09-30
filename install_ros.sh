@@ -48,7 +48,21 @@ popd
   fi
   popd
 
+# Certificate Error on some machines
+
+ruby -ropenssl -e "p OpenSSL::X509::DEFAULT_CERT_FILE"
+export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+
 sudo -H rosdep init
+
+# if rosdep init fails, do it manually
+
+if [ $? -eq 0 ]; then
+  wget https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
+  mkdir -p /etc/ros/rosdep/sources.list.d/
+  mv 20-default.list /etc/ros/rosdep/sources.list.d/
+fi
+
 rosdep update
 
 mkdir ~/ros_catkin_ws
@@ -82,5 +96,3 @@ fi
 
 
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_BUILD_TYPE=Release
-
-#source ~/ros_catkin_ws/install_isolated/setup.bash

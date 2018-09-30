@@ -4,6 +4,9 @@
 
 Script and Troubleshooting guide to install ROS lunar on MacOS
 
-### Trouble Shooting Guide
-
-TO DO
+```
+git clone https://github.com/vinay0410/install-ros-macos.git
+cd install-ros-macos
+bash -x install_ros.sh
+source ~/ros_catkin_ws/install_isolated/setup.bash
+```
